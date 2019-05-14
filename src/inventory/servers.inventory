@@ -8,5 +8,9 @@ ansible_connection=winrm
 ansible_winrm_server_cert_validation=ignore
 
 [zookeepers]
+vt-ansible-zook.dips.local
 
 [zookeepers:vars]
+ansible_user=root
+ansible_connection=ssh
+ansible_winrm_server_cert_validation=ignore
