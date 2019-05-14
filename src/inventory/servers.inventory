@@ -1,6 +1,11 @@
 [windows_server]
+az-ne-ansc06 ansible_host=10.6.0.13
 
 [windows_server:vars]
+ansible_user=ansibleadmin
+ansible_password=Passord1Passord1
+ansible_connection=winrm
+ansible_winrm_server_cert_validation=ignore
 
 [zookeepers]
 
