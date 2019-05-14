@@ -1,0 +1,7 @@
+- name: Install IIS (Web-Server only)
+  win_feature:
+    name: 
+      - "{{ item }}"
+    state: present
+  register: iis_installed_output
+  with_items: "{{ IISFeatures }}"

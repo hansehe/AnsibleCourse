@@ -1,0 +1,5 @@
+- name: Restart Stratos
+  win_service:
+    name: StratosService
+    state: restarted
+

@@ -3,3 +3,22 @@
     name: stratos 
     state: latest
   register: stratos
+  notify: 
+    - Restart Stratos
+
+- name: Copy log4net.config
+  win_template:
+    src: log4net.config
+    dest: "{{ stratosInstallfolder }}"
+  notify: 
+    - Restart Stratos
+
+- name: Verify 200Ok
+  win_uri:
+    url: http://{{ ansible_hostname }}:1337/api/chocoPackages
+  register: http_stratos_output
+
+- name: Fail if Stratos down
+  fail:
+    msg: "Stratos is down.."
+  when: http_stratos_output.status_code != 200

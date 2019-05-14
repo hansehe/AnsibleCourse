@@ -1,15 +1,6 @@
-- name: Appserver update
+- name: Appserver windows update
   hosts: windows_server
-  tasks:
-    - name: Install all security, critical, and rollup updates without a scheduled task
-      win_updates:
-        category_names:
-          - SecurityUpdates
-          # - CriticalUpdates
-          # - UpdateRollups
-      register: windows_servers_update_output
-    - name: Reboot windows servers if needed
-      win_reboot:
-      when: windows_servers_update_output.reboot_required
-        
-
+  roles:
+    - WindowsUpdate
+    - IIS
+    - Stratos

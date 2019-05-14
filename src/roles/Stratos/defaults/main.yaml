@@ -1,1 +1,2 @@
 stratosInstallfolder: "C:\\ProgramData\\chocolatey\\lib\\stratos\\bin"
+logLevel: "debug"
